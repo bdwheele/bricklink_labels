@@ -65,8 +65,6 @@ body {
     html += '</head><body><div class="container">'
     for idx in args.part_indexes:
         item = bl.catalog_by_number(bs.items[idx].id)
-
-
         html += '<div class="box">'
         html += f'<div><img class="part_image" src="{bl.get_image_data(item, bs.items[idx].color)}"/></div>'        
         html += f'<div class="part_description">{item.type_id}: <b>{bs.items[idx].id}</b> / {bs.items[idx].condition}<br/>'
@@ -74,11 +72,8 @@ body {
         if bs.items[idx].color != 0:
             html += f'{bs.items[idx].color_name}<br/>'
         html += f'{bs.items[idx].name}</div>'
-
         html += '</div>'
-
     html += "</div></body></html>"
-
     args.html_file.write_text(html)
 
 
